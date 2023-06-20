@@ -11,7 +11,8 @@
 # Autostart
 riverctl spawn /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 riverctl spawn "swaybg -m fill -i /home/nikita/pictures/neboskreb.jpg"
-riverctl spawn "waybar -s .config/river/waybar/style.css -c .config/river/waybar/config.jsonc &"
+# riverctl spawn "waybar -s .config/river/waybar/style.css -c .config/river/waybar/config.jsonc &"
+riverctl spawn "yambar ~/.config/river/yambar/config.yml &"
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 riverctl map normal Super P spawn "bemenu-run"

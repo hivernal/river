@@ -1,5 +1,5 @@
 bar:
-  height: 30
+  height: 28
   location: top
   background: 282c34ff
   foreground: fcfcfcff
@@ -52,7 +52,7 @@ bar:
           - ramp:
               tag: capacity
               font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=19"
-              right-margin: 15
+              right-margin: 17
               items:
                 - string: {text: ""}
                 - string: {text: ""}

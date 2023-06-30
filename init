@@ -8,13 +8,6 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
-# Autostart
-riverctl spawn /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg"
-# riverctl spawn "waybar -s ~/.config/river/waybar/style.css -c .config/river/waybar/config.jsonc &"
-riverctl spawn "yambar -c ~/.config/river/yambar/config.yml &"
-# dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 riverctl map normal Super P spawn "bemenu-run"
 riverctl map normal Super+Shift Return spawn "foot"
@@ -108,7 +101,6 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 # Super+Space to toggle float
 riverctl map normal Super F toggle-float
-
 riverctl map normal Super M send-layout-cmd rivercarro "main-location monocle"
 riverctl map normal Super T send-layout-cmd rivercarro "main-location left"
 
@@ -163,7 +155,7 @@ riverctl set-repeat 25 300
 
 # Make certain views start floating
 riverctl float-filter-add app-id float
-riverctl float-filter-add title "popup title with spaces"
+riverctl float-filter-add title "Firefox — Sharing Indicator"
 
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
@@ -183,6 +175,12 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad pointer-accel 0
 riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad tap enabled
 riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll enabled
 
-# systemctl --user import-environment
-systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_DESKTOP=sway XDG_CURRENT_DESKTOP=sway
+# Autostart
+riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
+riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg"
+riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc &"
+# riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
+
+# export XDG_CURRENT_DESKTOP=river
+# export XDG_SESSION_DESKTOP=river
+exec systemctl --user import-environment

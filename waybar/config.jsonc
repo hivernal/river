@@ -5,46 +5,42 @@
     "modules-left": ["river/tags", "river/window"],
     "modules-center": ["clock"],
     "modules-right": ["pulseaudio",  "battery", "custom/mem", "network"],
-    "sway/window": {
-        "max-length": 45
-    },
+
     "river/window": {
         "max-length": 55
     },
-    "hyprland/language": {
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 16'>󰌌 </span><span rise='2000'>{}  </span>",
-      "format-ru": "RU",
-      "format-en": "EN"
-    },
+
     "pulseaudio": {
-      "format-muted": "<span font_desc='JetBrainsMono Nerd Font Medium 18'>{icon}</span> <span rise='2700'>muted</span>",
+      "format-muted": "<span font_size='18pt' letter_spacing='15000'>{icon}</span><span rise='2700'>muted</span>  ",
       "format-icons": ["󰕿", "󰖀", "󰕾"],
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 18'>{icon}</span> <span rise='2700'>{volume}%  </span>"
+      "format": "<span font_size='18pt' letter_spacing='15000'>{icon}</span><span rise='2700'>{volume}%</span>  "
     },
+
     "battery": {
-        "format": "<span font_desc='JetBrainsMono Nerd Font Medium 14' letter_spacing='-1000'>{icon}  </span>{capacity}%  ",
+        "format": "<span font_size='14pt' letter_spacing='37000'>{icon}</span>{capacity}%  ",
         "format-icons": ["", "", "", "", ""]
     },
+
     "clock": {
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 16'> </span><span rise='2000'>{:%H:%M}  </span>",
+      "format": "<span font_size='16pt' letter_spacing='20000'></span><span rise='2000'>{:%H:%M}</span>",
       "timezone": "Asia/Krasnoyarsk"
     },
-    "sway/language": {
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 16'>󰌌 </span><span rise='2000'>{short}  </span>" 
-    },
+
     "network": {
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 15' letter_spacing='-1000' rise='-1500'>{icon} </span>{essid} ",
+      "format": "<span font_size='15pt' letter_spacing='-1000' rise='-1500'>{icon} </span>{essid} ",
       "format-icons": ["󰣾", "󰣴", "󰣶", "󰣸", "󰣺"],
-      "format-disconnected": "<span font_desc='JetBrainsMono Nerd Font Medium 15' letter_spacing='-1000' rise='-1500'>󰣽 </span>disconnected ",
+      "format-disconnected": "<span font_size='15pt' letter_spacing='-1000' rise='-1500'>󰣽 </span>disconnected ",
       "interval": 2
     },
+
     "memory": {
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 14' letter_spacing='1000'> </span>{used}Gi  ",
+      "format": "<span font_size='16pt' letter_spacing='1000'> </span>{used}Gi",
       "interval": 2
     },
+
     "custom/mem": {
       "exec": "free -h | awk '(NR==2) {print $3}'",
-      "format": "<span font_desc='JetBrainsMono Nerd Font Medium 15' letter_spacing='-1000' rise='-1500'> </span>{}  ",
+      "format": "<span font_size='15pt' letter_spacing='-1000' rise='-1500'> </span>{}  ",
       "interval": 2
     }
 }

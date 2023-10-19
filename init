@@ -141,7 +141,8 @@ do
     # Control screen backlight brightness
     riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +5%'
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
-    riverctl map $mode None Print spawn 'grim -g "$(slurp)" - | wl-copy'
+    riverctl map $mode None Print spawn 'wayshot --stdout -s "$(slurp)" | wl-copy'
+    riverctl map $mode Shift Print spawn 'wayshot -f ~/pictures/$(date +%y%m%d%H%M%S).png -s "$(slurp)"'
 done
 
 # Set background and border color
@@ -180,8 +181,8 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll 
 riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
 riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg"
 # riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc &"
-riverctl spawn "yambar -c $HOME/.config/river/yambar/noicons.yml &"
+riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 
-# export XDG_CURRENT_DESKTOP=river
-# export XDG_SESSION_DESKTOP=river
+export XDG_CURRENT_DESKTOP=river
+export XDG_SESSION_DESKTOP=river
 systemctl --user import-environment

@@ -163,13 +163,13 @@ riverctl csd-filter-add app-id "gedit"
 
 # Layout
 riverctl default-layout rivercarro
-rivercarro -inner-gaps 5 -outer-gaps 5 -no-smart-gaps &
+rivercarro -inner-gaps 0 -outer-gaps 0 -no-smart-gaps &
 
 # Rules
-# riverctl rule-add ssd -app-id "firefox"
-# riverctl rule-add ssd -app-id "remote-viewer"
-# riverctl rule-add ssd -app-id "thunderbird"
-# riverctl rule-add ssd -app-id "libreoffice-startcenter"
+riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "remote-viewer" ssd
+riverctl rule-add -app-id "thunderbird" ssd
+riverctl rule-add -app-id "libreoffice-startcenter" ssd
 
 # Devices
 riverctl keyboard-layout -options grp:win_space_toggle us,ru
@@ -185,4 +185,4 @@ riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 
 export XDG_CURRENT_DESKTOP=river
 export XDG_SESSION_DESKTOP=river
-systemctl --user import-environment
+dbus-update-activation-environment --all

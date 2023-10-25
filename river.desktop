@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=River
 Comment=A dynamic tiling Wayland compositor
-# Exec=river
-Exec=river-service.sh
+Exec=river
+# Exec=river-service.sh
 Type=Application

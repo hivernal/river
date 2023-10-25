@@ -61,13 +61,13 @@ bar:
                 - string: {text: ""}
           - string: {text: "{capacity}%"}
     - mem:
-        interval: 2000
+        poll-interval: 2000
         content:
           - string: {text: "", font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=20", right-margin: 10}
           - string: {text: "{used:mb}Mi"}
     - network:
         name: wlo1
-        poll-interval: 5
+        poll-interval: 5000
         content:
           map:
             default:

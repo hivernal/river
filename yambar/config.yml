@@ -1,32 +1,35 @@
 bar:
   height: 28
   location: top
-  background: 282c34ff
-  foreground: fcfcfcff
+  background: 2e3440ff
+  foreground: d8dee9ff
   font: JetBrainsMono Nerd Font:weight=bold:pixelsize=16
   spacing: 15
 
   left:
     - river:
         title:
-          string: { text: "{title}", max: 65, left-margin: 10}
+          string:
+            text: "{title}"
+            left-margin: 10
+            # max: 65
         content:
           map:
             default: 
-              string: {text: "{id}", margin: 12, foreground: 5c6667ff}
+              string: {text: "{id}", margin: 12, foreground: 4c566aff}
             conditions:
               id > 9:
                 empty: {}
               focused:
-                string: {text: "{id}", margin: 12, deco: {background: {color: 5c6667ff}}}
+                string: {text: "{id}", margin: 12, deco: {background: {color: 4c566aff}}}
               occupied:
-                string: {text: "{id}", margin: 12, foreground: fcfcfcff}
+                string: {text: "{id}", margin: 12, foreground: d8dee9ff}
 
-  center:
-    - clock:
-        content:
-          - string: {text: "", font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=20", right-margin: 10}
-          - string: {text: "{time}"}
+  # center:
+  #   - clock:
+  #       content:
+  #         - string: {text: "", font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=20", right-margin: 10}
+  #         - string: {text: "{time}"}
 
   right:
     - pulse:
@@ -76,4 +79,9 @@ bar:
             conditions:
               state == "up":
                 - string: {text: "󰣺", font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=20", right-margin: 7}
-                - string: {text: "{ssid}", right-margin: 10}
+                - string: {text: "{ssid}"}
+    - clock:
+        content:
+          - string: {text: "", font: "JetBrainsMono Nerd Font:weight=bold:pixelsize=20", right-margin: 10}
+          - string: {text: "{time}", right-margin: 10}
+

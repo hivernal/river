@@ -17,7 +17,8 @@ riverctl map normal Super Q close
 
 # Super+Shift+E to exit river
 riverctl map normal Super+Shift E exit
-riverctl map normal Super+Shift Q spawn "shutdown -h now"
+riverctl map normal Super+Shift Q spawn "systemctl poweroff"
+riverctl map normal Super+Shift R spawn "systemctl reboot"
 
 # Super+J and Super+K to focus the next/previous view in the layout stack
 riverctl map normal Super J focus-view next
@@ -146,8 +147,8 @@ do
 done
 
 # Set background and border color
-riverctl border-color-focused 0xfcfcfc #0xa4c3c3
-riverctl border-color-unfocused 0x282c34 #0x586e75
+riverctl border-color-focused 0xd8dee9 #0xa4c3c3
+riverctl border-color-unfocused 0x2e3440 #0x586e75
 riverctl border-width 3
 riverctl focus-follows-cursor always
 
@@ -159,17 +160,22 @@ riverctl float-filter-add app-id float
 riverctl float-filter-add title "Firefox — Sharing Indicator"
 
 # Set app-ids and titles of views which should use client side decorations
-riverctl csd-filter-add app-id "gedit"
 
 # Layout
 riverctl default-layout rivercarro
-rivercarro -inner-gaps 0 -outer-gaps 0 -no-smart-gaps &
+rivercarro -inner-gaps 5 -outer-gaps 5 -no-smart-gaps &
 
 # Rules
+# riverctl rule-add -app-id "*" ssd
 riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "evince" ssd
+riverctl rule-add -app-id "imv" ssd
 riverctl rule-add -app-id "remote-viewer" ssd
 riverctl rule-add -app-id "thunderbird" ssd
 riverctl rule-add -app-id "libreoffice-startcenter" ssd
+riverctl rule-add -app-id "blueberry.py" ssd
+riverctl rule-add -app-id "nwg-look" ssd
+riverctl rule-add -app-id "telegram" ssd
 
 # Devices
 riverctl keyboard-layout -options grp:win_space_toggle us,ru
@@ -179,7 +185,7 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll 
 
 # Autostart
 riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
-riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg"
+riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg &"
 # riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc &"
 riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 

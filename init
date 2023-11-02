@@ -147,8 +147,8 @@ do
 done
 
 # Set background and border color
-riverctl border-color-focused 0xd8dee9 #0xa4c3c3
-riverctl border-color-unfocused 0x2e3440 #0x586e75
+riverctl border-color-focused 0xd8dee9 # 0xd2d9f8-TokyoNight 0xd8dee9-Nord
+riverctl border-color-unfocused 0x5e5f67 # 0x5e5f67-TokyoNight 0x5e5f67-Nord
 riverctl border-width 3
 riverctl focus-follows-cursor always
 
@@ -185,7 +185,7 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll 
 
 # Autostart
 riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
-riverctl spawn "swaybg -m fill -i ~/pictures/neboskreb.jpg &"
+riverctl spawn "swaybg -m fill -i ~/pictures/groot.png &"
 # riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc &"
 riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 

@@ -1,8 +1,8 @@
 bar:
   height: 28
   location: top
-  background: 2e3440ff
-  foreground: d8dee9ff
+  background: 2e3440ff # 1a1b26ff-TokyoNight 2e3440ff-Nord
+  foreground: d8dee9ff # d2d9f8ff-TokyoNight d8dee9ff-Nord
   font: JetBrainsMono Nerd Font:weight=bold:pixelsize=16
   spacing: 15
 
@@ -12,18 +12,18 @@ bar:
           string:
             text: "{title}"
             left-margin: 10
-            # max: 65
+            max: 115
         content:
           map:
             default: 
-              string: {text: "{id}", margin: 12, foreground: 4c566aff}
+              string: {text: "{id}", margin: 12, foreground: 575c66ff} # 5e5f67ff-TokyoNight 575c66ff-Nord
             conditions:
               id > 9:
                 empty: {}
               focused:
-                string: {text: "{id}", margin: 12, deco: {background: {color: 4c566aff}}}
+                string: {text: "{id}", margin: 12, deco: {background: {color: 575c66ff}}} # 5e5f67ff-TokyoNight 575c66ff-Nord
               occupied:
-                string: {text: "{id}", margin: 12, foreground: d8dee9ff}
+                string: {text: "{id}", margin: 12, foreground: d8dee9ff} # d2d9f8ff-TokyoNight d8dee9ff-Nord
 
   # center:
   #   - clock:

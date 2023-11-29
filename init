@@ -101,6 +101,8 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
+riverctl map normal Super M toggle-fullscreen
+
 # Super+Space to toggle float
 riverctl map normal Super F toggle-float
 # riverctl map normal Super M send-layout-cmd rivertile "main-location monocle"
@@ -143,8 +145,8 @@ do
     # Control screen backlight brightness
     riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +5%'
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
-    riverctl map $mode None Print spawn 'wayshot --stdout -s "$(slurp)" | wl-copy'
-    riverctl map $mode Shift Print spawn 'wayshot -f ~/pictures/$(date +%y%m%d%H%M%S).png -s "$(slurp)"'
+    riverctl map $mode None Print spawn 'grim -g "$(slurp)" - | wl-copy'
+    riverctl map $mode Shift Print spawn 'grim -g "$(slurp)" - > ~/pictures/$(date +%y%m%d%H%M%S).png'
 done
 
 # Set background and border color

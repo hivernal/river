@@ -132,9 +132,12 @@ do
     riverctl map $mode None XF86Eject spawn 'eject -T'
 
     # Control pulse audio volume with pamixer (https://github.com/cdemoulins/pamixer)
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
-    riverctl map $mode None XF86AudioMute         spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    # riverctl map $mode None XF86AudioRaiseVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ +5%'
+    # riverctl map $mode None XF86AudioLowerVolume  spawn 'pactl set-sink-volume @DEFAULT_SINK@ -5%'
+    # riverctl map $mode None XF86AudioMute         spawn 'pactl set-sink-mute @DEFAULT_SINK@ toggle'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn '$HOME/.config/river/volume.sh up'
+    riverctl map $mode None XF86AudioLowerVolume  spawn '$HOME/.config/river/volume.sh down'
+    riverctl map $mode None XF86AudioMute         spawn '$HOME/.config/river/volume.sh mute'
 
     # Control MPRIS aware media players with playerctl (https://github.com/altdesktop/playerctl)
     riverctl map $mode None XF86AudioMedia spawn 'playerctl play-pause'
@@ -143,8 +146,10 @@ do
     riverctl map $mode None XF86AudioNext  spawn 'playerctl next'
 
     # Control screen backlight brightness
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +5%'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
+    # riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl s +5%'
+    # riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl s 5%-'
+    riverctl map $mode None XF86MonBrightnessUp   spawn '$HOME/.config/river/brightness.sh up'
+    riverctl map $mode None XF86MonBrightnessDown spawn '$HOME/.config/river/brightness.sh down'
     riverctl map $mode None Print spawn 'grim -g "$(slurp)" - | wl-copy'
     riverctl map $mode Shift Print spawn 'grim -g "$(slurp)" - > ~/pictures/$(date +%y%m%d%H%M%S).png'
 done
@@ -188,10 +193,10 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad tap enabled
 riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll enabled
 
 # Autostart
-riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
-riverctl spawn "swaybg -m fill -i ~/pictures/groot-dark.png &"
-# riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc &"
-riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
+riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+riverctl spawn "swaybg -m fill -i ~/pictures/groot-dark.png"
+riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc"
+# riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 
 export XDG_CURRENT_DESKTOP=river
 export XDG_SESSION_DESKTOP=river

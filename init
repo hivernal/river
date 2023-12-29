@@ -195,8 +195,8 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll 
 # Autostart
 riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 riverctl spawn "swaybg -m fill -i ~/pictures/groot-dark.png"
-riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc"
-# riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
+# riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc"
+riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
 
 export XDG_CURRENT_DESKTOP=river
 export XDG_SESSION_DESKTOP=river

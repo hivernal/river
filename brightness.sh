@@ -1,13 +1,14 @@
 #!/bin/bash
 
-BRIGHTNESS=
-if [[ $1 == "up" ]] then
-  BRIGHTNESS=$(brightnessctl s +5% | grep -Eo "[0-9]*%")
-elif [[ $1 == "down" ]]; then
-  BRIGHTNESS=$(brightnessctl s 5%- | grep -Eo "[0-9]*%")
+if [[ "$1" == "up" ]] then
+  brightness="$(brightnessctl s +5% | grep -Eo '[0-9]{1,3}%')"
+elif [[ "$1" == "down" ]]; then
+  brightness="$(brightnessctl s 5%- | grep -Eo '[0-9]{1,3}%')"
+else
+  brightness="$(brightnessctl | grep -Eo '[0-9]{1,3}%')"
 fi
 
-BRIGHTNESS=${BRIGHTNESS%%%}
-ICON=$HOME/.config/hypr/icons/icons8-sun.svg
+brightness=${brightness%%%}
+ICON=${HOME}/.config/river/icons/icons8-sun.svg
 
-dunstify -t 2000 -i $THEME/$ICON -h string:x-canonical-private-synchronous:brightness "$BRIGHTNESS%" -h int:value:$BRIGHTNESS
+dunstify -t 2000 -i "${ICON}" -h string:x-canonical-private-synchronous:brightness "${brightness}%" -h int:value:${brightness}

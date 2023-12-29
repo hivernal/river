@@ -11,7 +11,7 @@ fi
 MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | cut -d " "  -f2)
 VOLUME=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '(NR == 1) {print $5}')
 VOLUME=${VOLUME%%%}
-DIR=$HOME/.config/hypr/icons
+DIR=$HOME/.config/river/icons
 if [[ $MUTED == "yes" ]]; then
     ICON=audio-volume-muted-panel.svg
 else

@@ -12,7 +12,7 @@ bar:
           string:
             text: "{title}"
             left-margin: 10
-            max: 115
+            max: 105
         content:
           map:
             default: 
@@ -32,6 +32,11 @@ bar:
   #         - string: {text: "{time}"}
 
   right:
+    - backlight:
+        name: intel_backlight
+        content:
+          - string: {text: "󰖨", font: "JetBrainsMono NF:weight=bold:pixelsize=22", right-margin: 10}
+          - string: {text: "{percent}%"}
     - pulse:
         content:
           map:

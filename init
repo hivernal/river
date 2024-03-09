@@ -5,7 +5,7 @@
 # If you wish to edit this, you will probably want to copy it to
 # $XDG_CONFIG_HOME/river/init or $HOME/.config/river/init first.
 #
-# See the river(1), riverctl(1), and rivertile(1) man pages for complete
+# See the river(1), riverctl(1), and filtile(1) man pages for complete
 # documentation.
 
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
@@ -41,13 +41,13 @@ riverctl map normal Super+Shift Comma send-to-output previous
 # Super+Return to bump the focused view to the top of the layout stack
 riverctl map normal Super Return zoom
 
-# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
-riverctl map normal Super H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd rivertile "main-ratio +0.05"
+# Super+H and Super+L to decrease/increase the main ratio of filtile(1)
+riverctl map normal Super H send-layout-cmd filtile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd filtile "main-ratio +0.05"
 
-# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
-riverctl map normal Super+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd rivertile "main-count -1"
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of filtile(1)
+riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd filtile "main-count -1"
 
 # riverctl hide-cursor when-typing enabled
 
@@ -101,18 +101,18 @@ all_tags=$(((1 << 32) - 1))
 riverctl map normal Super 0 set-focused-tags $all_tags
 riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
-riverctl map normal Super M toggle-fullscreen
+# riverctl map normal Super M toggle-fullscreen
 
 # Super+Space to toggle float
 riverctl map normal Super F toggle-float
-# riverctl map normal Super M send-layout-cmd rivertile "main-location monocle"
-# riverctl map normal Super T send-layout-cmd rivertile "main-location left"
+riverctl map normal Super M send-layout-cmd filtile "monocle"
+# riverctl map normal Super T send-layout-cmd filtile "main-location left"
 
 # Super+{Up,Right,Down,Left} to change layout orientation
-riverctl map normal Super Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal Super Right send-layout-cmd rivertile "main-location right"
-riverctl map normal Super Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd rivertile "main-location left"
+riverctl map normal Super Up    send-layout-cmd filtile "main-location top"
+riverctl map normal Super Right send-layout-cmd filtile "main-location right"
+riverctl map normal Super Down  send-layout-cmd filtile "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd filtile "main-location left"
 
 # Declare a passthrough mode. This mode has only a single mapping to return to
 # normal mode. This makes it useful for testing a nested wayland compositor
@@ -170,21 +170,21 @@ riverctl float-filter-add title "Firefox — Sharing Indicator"
 # Set app-ids and titles of views which should use client side decorations
 
 # Layout
-riverctl default-layout rivertile
+riverctl default-layout filtile
 # rivercarro -inner-gaps 5 -outer-gaps 5 -no-smart-gaps &
-rivertile -view-padding 0 -outer-padding 0 &
+filtile -view-padding 0 -outer-padding 0 &
 
 # Rules
 # riverctl rule-add -app-id "*" ssd
-# riverctl rule-add -app-id "firefox" ssd
-# riverctl rule-add -app-id "evince" ssd
-# riverctl rule-add -app-id "imv" ssd
-# riverctl rule-add -app-id "remote-viewer" ssd
-# riverctl rule-add -app-id "thunderbird" ssd
-# riverctl rule-add -app-id "libreoffice-startcenter" ssd
-# riverctl rule-add -app-id "blueberry.py" ssd
-# riverctl rule-add -app-id "nwg-look" ssd
-# riverctl rule-add -app-id "telegram" ssd
+riverctl rule-add -app-id "firefox" ssd
+riverctl rule-add -app-id "evince" ssd
+riverctl rule-add -app-id "imv" ssd
+riverctl rule-add -app-id "remote-viewer" ssd
+riverctl rule-add -app-id "thunderbird" ssd
+riverctl rule-add -app-id "libreoffice-startcenter" ssd
+riverctl rule-add -app-id "blueberry.py" ssd
+riverctl rule-add -app-id "nwg-look" ssd
+riverctl rule-add -app-id "telegram" ssd
 
 # Devices
 riverctl keyboard-layout -options grp:win_space_toggle us,ru
@@ -193,7 +193,8 @@ riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad tap enabled
 riverctl input pointer-1267-12541-ELAN0712:00_04F3:30FD_Touchpad natural-scroll enabled
 
 # Autostart
-riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+# riverctl spawn "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+riverctl spawn "/usr/lib/polkit-kde-authentication-agent-1"
 riverctl spawn "swaybg -m fill -i ~/pictures/groot-dark.png"
 # riverctl spawn "waybar -s $HOME/.config/river/waybar/style.css -c $HOME/.config/river/waybar/config.jsonc"
 riverctl spawn "yambar -c $HOME/.config/river/yambar/config.yml &"
